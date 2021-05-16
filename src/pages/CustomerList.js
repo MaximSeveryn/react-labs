@@ -1,25 +1,27 @@
 import { Helmet } from 'react-helmet';
 import { Box, Container } from '@material-ui/core';
 import CustomerListResults from 'src/components/customer/CustomerListResults';
-import CustomerListToolbar from 'src/components/customer/CustomerListToolbar';
+import Toolbar from 'src/components/Toolbar';
 import customers from 'src/__mocks__/customers';
 
 const CustomerList = () => (
   <>
     <Helmet>
-      <title>Customers | Material Kit</title>
+      <title>Customers</title>
     </Helmet>
     <Box
+      className="customer-list"
       sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
+        backgroundColor: 'background.default'
       }}
     >
-      <Container maxWidth={false}>
-        <CustomerListToolbar />
-        <Box sx={{ pt: 3 }}>
-          <CustomerListResults customers={customers} />
+      <Container className="customer-list__container">
+        <Toolbar add="customer" search="Search customer" />
+        <Box className="customer-list__table-box">
+          <CustomerListResults
+            className="customer-list__table"
+            customers={customers}
+          />
         </Box>
       </Container>
     </Box>

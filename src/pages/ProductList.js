@@ -1,54 +1,36 @@
 import { Helmet } from 'react-helmet';
-import {
-  Box,
-  Container,
-  Grid,
-  Pagination
-} from '@material-ui/core';
-import ProductListToolbar from 'src/components/product/ProductListToolbar';
+import { Box, Container, Grid, Pagination } from '@material-ui/core';
 import ProductCard from 'src/components/product//ProductCard';
 import products from 'src/__mocks__/products';
+import Toolbar from 'src/components/Toolbar';
 
 const ProductList = () => (
   <>
     <Helmet>
-      <title>Products | Material Kit</title>
+      <title>Products</title>
     </Helmet>
-    <Box
-      sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
-      }}
-    >
-      <Container maxWidth={false}>
-        <ProductListToolbar />
-        <Box sx={{ pt: 3 }}>
-          <Grid
-            container
-            spacing={3}
-          >
+    <Box className="product-list">
+      <Container className="product-list__container">
+        <Toolbar add="product" search="Search product" />
+        <Box className="product-list__cards">
+          <Grid className="product-list__cards-container" container spacing={3}>
             {products.map((product) => (
               <Grid
+                className="product-list__card-wrapper"
                 item
                 key={product.id}
                 lg={4}
                 md={6}
                 xs={12}
               >
-                <ProductCard product={product} />
+                <ProductCard className="product-list__card" product={product} />
               </Grid>
             ))}
           </Grid>
         </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            pt: 3
-          }}
-        >
+        <Box className="product-list__pagination-wrapper">
           <Pagination
+            className="product-list__pagination"
             color="primary"
             count={3}
             size="small"

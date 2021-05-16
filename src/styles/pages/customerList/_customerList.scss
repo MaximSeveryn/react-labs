@@ -1,0 +1,47 @@
+.customer-list {
+  min-height: 100%;
+  padding-top: $s3;
+  padding-bottom: $s3;
+  &__container {
+    max-width: none;
+  }
+  &__table-box {
+    padding-top: $s3;
+  }
+  &__table {
+    background-color: #fff;
+    color: #172b4d;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+}
+
+.customer-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  &__head {
+    display: table-header-group;
+  }
+  &__row {
+    color: inherit;
+    display: table-row;
+    vertical-align: middle;
+    outline: 0;
+    &:hover {
+    }
+  }
+  &__cell {
+    padding: $s2;
+  }
+  &__body {
+    display: table-row-group;
+  }
+  &__checkbox {
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    margin: 0;
+  }
+}

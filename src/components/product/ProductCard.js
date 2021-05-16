@@ -4,7 +4,6 @@ import {
   Box,
   Card,
   CardContent,
-  Divider,
   Grid,
   Typography
 } from '@material-ui/core';
@@ -13,28 +12,21 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 
 const ProductCard = ({ product, ...rest }) => (
   <Card
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100%'
-    }}
     {...rest}
   >
-    <CardContent>
+    <CardContent className="product-card__content">
       <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          pb: 3
-        }}
+        className="product-card__avatar-box"
       >
         <Avatar
+          className="product-card__avatar"
           alt="Product"
           src={product.media}
           variant="square"
         />
       </Box>
       <Typography
+        className="product-card__title"
         align="center"
         color="textPrimary"
         gutterBottom
@@ -43,6 +35,7 @@ const ProductCard = ({ product, ...rest }) => (
         {product.title}
       </Typography>
       <Typography
+        className="product-card__desc"
         align="center"
         color="textPrimary"
         variant="body1"
@@ -50,43 +43,37 @@ const ProductCard = ({ product, ...rest }) => (
         {product.description}
       </Typography>
     </CardContent>
-    <Box sx={{ flexGrow: 1 }} />
-    <Divider />
-    <Box sx={{ p: 2 }}>
+    <Box className="spacing" />
+    <div className="divider" />
+    <Box className="product-card__info" sx={{ p: 2 }}>
       <Grid
+        className="product-card__info-inner"
         container
         spacing={2}
-        sx={{ justifyContent: 'space-between' }}
       >
         <Grid
+          className="product-card__info-block"
           item
-          sx={{
-            alignItems: 'center',
-            display: 'flex'
-          }}
         >
-          <AccessTimeIcon color="action" />
+          <AccessTimeIcon className="product-card__info-icon" color="action" />
           <Typography
+            className="product-card__info-desc"
             color="textSecondary"
             display="inline"
-            sx={{ pl: 1 }}
             variant="body2"
           >
             Updated 2hr ago
           </Typography>
         </Grid>
         <Grid
+          className="product-card__info-block"
           item
-          sx={{
-            alignItems: 'center',
-            display: 'flex'
-          }}
         >
-          <GetAppIcon color="action" />
+          <GetAppIcon className="product-card__info-icon" color="action" />
           <Typography
+            className="product-card__info-desc"
             color="textSecondary"
             display="inline"
-            sx={{ pl: 1 }}
             variant="body2"
           >
             {product.totalDownloads}

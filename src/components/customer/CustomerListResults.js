@@ -66,10 +66,10 @@ const CustomerListResults = ({ customers, ...rest }) => {
     <Card {...rest}>
       <PerfectScrollbar>
         <Box sx={{ minWidth: 1050 }}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell padding="checkbox">
+          <Table className="customer-table">
+            <TableHead className="customer-table__head">
+              <TableRow className="customer-table__row">
+                <TableCell padding="checkbox" className="customer-table__cell">
                   <Checkbox
                     checked={selectedCustomerIds.length === customers.length}
                     color="primary"
@@ -80,38 +80,40 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     onChange={handleSelectAll}
                   />
                 </TableCell>
-                <TableCell>
+                <TableCell className="customer-table__cell">
                   Name
                 </TableCell>
-                <TableCell>
+                <TableCell className="customer-table__cell">
                   Email
                 </TableCell>
-                <TableCell>
+                <TableCell className="customer-table__cell">
                   Location
                 </TableCell>
-                <TableCell>
+                <TableCell className="customer-table__cell">
                   Phone
                 </TableCell>
-                <TableCell>
+                <TableCell className="customer-table__cell">
                   Registration date
                 </TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
+            <TableBody className="customer-table__body">
               {customers.slice(0, limit).map((customer) => (
                 <TableRow
                   hover
                   key={customer.id}
                   selected={selectedCustomerIds.indexOf(customer.id) !== -1}
+                  className="customer-table__row"
                 >
-                  <TableCell padding="checkbox">
+                  <TableCell padding="checkbox" className="customer-table__cell">
                     <Checkbox
+                      className="customer-table__checkbox"
                       checked={selectedCustomerIds.indexOf(customer.id) !== -1}
                       onChange={(event) => handleSelectOne(event, customer.id)}
                       value="true"
                     />
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="customer-table__cell">
                     <Box
                       sx={{
                         alignItems: 'center',
@@ -132,16 +134,16 @@ const CustomerListResults = ({ customers, ...rest }) => {
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="customer-table__cell">
                     {customer.email}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="customer-table__cell">
                     {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="customer-table__cell">
                     {customer.phone}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="customer-table__cell">
                     {moment(customer.createdAt).format('DD/MM/YYYY')}
                   </TableCell>
                 </TableRow>

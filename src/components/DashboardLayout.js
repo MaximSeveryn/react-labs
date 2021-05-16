@@ -4,56 +4,36 @@ import { experimentalStyled } from '@material-ui/core';
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
 
-const DashboardLayoutRoot = experimentalStyled('div')(
-  ({ theme }) => ({
-    backgroundColor: theme.palette.background.default,
-    display: 'flex',
-    height: '100%',
-    overflow: 'hidden',
-    width: '100%'
-  })
-);
+const DashboardLayoutRoot = experimentalStyled('div')(({ theme }) => ({
+  backgroundColor: theme.palette.background.default,
+}));
 
-const DashboardLayoutWrapper = experimentalStyled('div')(
-  ({ theme }) => ({
-    display: 'flex',
-    flex: '1 1 auto',
-    overflow: 'hidden',
-    paddingTop: 64,
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: 256
-    }
-  })
-);
-
-const DashboardLayoutContainer = experimentalStyled('div')({
-  display: 'flex',
-  flex: '1 1 auto',
-  overflow: 'hidden'
-});
-
-const DashboardLayoutContent = experimentalStyled('div')({
-  flex: '1 1 auto',
-  height: '100%',
-  overflow: 'auto'
-});
+const DashboardLayoutWrapper = experimentalStyled('div')(({ theme }) => ({
+  [theme.breakpoints.up('lg')]: {
+    paddingLeft: 256
+  }
+}));
 
 const DashboardLayout = () => {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <DashboardLayoutRoot>
-      <DashboardNavbar onMobileNavOpen={() => setMobileNavOpen(true)} />
+    <DashboardLayoutRoot className="dashboard">
+      <DashboardNavbar
+        className="navbar dashboard__navbar"
+        onMobileNavOpen={() => setMobileNavOpen(true)}
+      />
       <DashboardSidebar
+        className="sidebar dashboard__sidebar"
         onMobileClose={() => setMobileNavOpen(false)}
         openMobile={isMobileNavOpen}
       />
-      <DashboardLayoutWrapper>
-        <DashboardLayoutContainer>
-          <DashboardLayoutContent>
+      <DashboardLayoutWrapper className="wrapper dashboard__wrapper">
+        <div className="container dashboard__container">
+          <div className="content dashboard__content">
             <Outlet />
-          </DashboardLayoutContent>
-        </DashboardLayoutContainer>
+          </div>
+        </div>
       </DashboardLayoutWrapper>
     </DashboardLayoutRoot>
   );

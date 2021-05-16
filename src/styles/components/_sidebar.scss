@@ -1,0 +1,36 @@
+.sidebar {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $s2;
+  }
+  &__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    padding-top: $s1;
+    padding-bottom: $s1;
+    width: 100%;
+  }
+  &__nav-item {
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

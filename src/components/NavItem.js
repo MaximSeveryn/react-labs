@@ -4,7 +4,7 @@ import {
   useLocation
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Button, ListItem } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 const NavItem = ({
   href,
@@ -20,15 +20,12 @@ const NavItem = ({
   }, location.pathname) : false;
 
   return (
-    <ListItem
-      disableGutters
-      sx={{
-        display: 'flex',
-        py: 0
-      }}
+    <li
+      className="nav-item sidebar__nav-item"
       {...rest}
     >
       <Button
+        className="nav-item__btn"
         component={RouterLink}
         sx={{
           color: 'text.secondary',
@@ -50,11 +47,11 @@ const NavItem = ({
         {Icon && (
           <Icon size="20" />
         )}
-        <span>
+        <span className="nav-item__text">
           {title}
         </span>
       </Button>
-    </ListItem>
+    </li>
   );
 };
 

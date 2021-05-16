@@ -1,0 +1,46 @@
+@import './mixins';
+@import './vars';
+
+@import './dashboard/dashboard';
+@import './components/navnar';
+@import './components/sidebar';
+@import './components/user-avatar';
+
+@import './pages/productList/productList';
+@import './pages/customerList/customerList';
+
+//--------------------------------- GLOBAL STYLES -------------------------------------//
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+}
+body {
+  backgroundcolor: #f4f6f8;
+  height: 100%;
+  width: 100%;
+}
+a {
+  textdecoration: none;
+}
+#root {
+  height: 100%;
+  width: 100%;
+}
+.divider {
+  margin: 0;
+  flex-shrink: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-bottom-width: thin;
+}
+.spacing {
+  flex-grow: 1;
+}

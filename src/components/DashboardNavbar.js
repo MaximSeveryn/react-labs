@@ -18,17 +18,14 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
 
   return (
-    <AppBar
-      elevation={0}
-      {...rest}
-    >
-      <Toolbar>
-        <RouterLink to="/">
-          <Logo />
+    <AppBar elevation={0} {...rest}>
+      <Toolbar className="navbar__wrapper">
+        <RouterLink to="/" className="navbar__link">
+          <Logo className="navbar__logo" />
         </RouterLink>
         <Box sx={{ flexGrow: 1 }} />
         <Hidden lgDown>
-          <IconButton color="inherit">
+          <IconButton className="navbar__btn-icon" color="inherit">
             <Badge
               badgeContent={notifications.length}
               color="primary"
@@ -37,12 +34,13 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <IconButton color="inherit">
+          <IconButton className="navbar__btn-icon" color="inherit">
             <InputIcon />
           </IconButton>
         </Hidden>
         <Hidden lgUp>
           <IconButton
+            className="navbar__btn-icon"
             color="inherit"
             onClick={onMobileNavOpen}
           >

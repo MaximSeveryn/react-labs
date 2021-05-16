@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 import {
   Avatar,
   Box,
-  Divider,
   Drawer,
   Hidden,
-  List,
   Typography
 } from '@material-ui/core';
 import {
@@ -32,7 +30,7 @@ const items = [
     href: '/products',
     icon: ShoppingBagIcon,
     title: 'Products'
-  },
+  }
 ];
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
@@ -46,21 +44,13 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
 
   const content = (
     <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%'
-      }}
+      className="sidebar__wrapper"
     >
       <Box
-        sx={{
-          alignItems: 'center',
-          display: 'flex',
-          flexDirection: 'column',
-          p: 2
-        }}
+        className="sidebar__content"
       >
         <Avatar
+          className="user-avatar"
           component={RouterLink}
           src={user.avatar}
           sx={{
@@ -68,24 +58,18 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
             width: 64,
             height: 64
           }}
-          to="/app/account"
+          to="/"
         />
-        <Typography
-          color="textPrimary"
-          variant="h5"
-        >
+        <Typography color="textPrimary" variant="h5">
           {user.name}
         </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-        >
+        <Typography color="textSecondary" variant="body2">
           {user.jobTitle}
         </Typography>
       </Box>
-      <Divider />
-      <Box sx={{ p: 2 }}>
-        <List>
+      <hr className="sidebar__divider divider" />
+      <Box className="sidebar__content" sx={{ p: 2 }}>
+        <ul className="nav-list sidebar__nav-list">
           {items.map((item) => (
             <NavItem
               href={item.href}
@@ -94,9 +78,9 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
               icon={item.icon}
             />
           ))}
-        </List>
+        </ul>
       </Box>
-      <Box sx={{ flexGrow: 1 }} />
+      <div className="sidebar__spacing spacing" />
     </Box>
   );
 
@@ -143,7 +127,7 @@ DashboardSidebar.propTypes = {
 };
 
 DashboardSidebar.defaultProps = {
-  onMobileClose: () => { },
+  onMobileClose: () => {},
   openMobile: false
 };
 export default DashboardSidebar;
