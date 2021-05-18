@@ -8,12 +8,11 @@ const routes = [
     path: '/',
     element: <DashboardLayout />,
     children: [
-      { path: '/', element: <Navigate to="/customers" /> },
+      { path: '/', element: <Navigate to="customers" /> },
       { path: 'customers', element: <CustomerList /> },
-      { path: 'products', element: <ProductList /> },
+      { path: 'products', element: <ProductList /> }
     ]
-  },
-
+  }
 ];
 
 export default routes;

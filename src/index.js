@@ -1,12 +1,10 @@
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import * as serviceWorker from './serviceWorker';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 
-ReactDOM.render((
-  <BrowserRouter>
+ReactDOM.render(
+  <HashRouter basename="/react-labs">
     <App />
-  </BrowserRouter>
-), document.getElementById('root'));
-
-serviceWorker.unregister();
+  </HashRouter>,
+  document.getElementById('root')
+);
